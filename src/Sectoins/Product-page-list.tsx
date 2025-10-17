@@ -13,8 +13,11 @@ import { useProductStore } from "../store/productStore";
 import useCartStore from "../store/cartstore";
 
 export default function ProductPage() {
-  const { products, fetchProducts, loading, error } = useProductStore();
+  const { products, fetchProducts, loading, error, searchValue } = useProductStore();
   const { addItem, items,removeItem } = useCartStore();
+
+  const filtered = products.filter(p => p.title.toLowerCase().includes(searchValue.toLowerCase()))
+
 
   useEffect(() => {
     fetchProducts();
@@ -38,7 +41,7 @@ export default function ProductPage() {
 
   return (
     <Grid container spacing={2} justifyContent="center">
-      {products.map((p) => {
+      {filtered.map((p) => {
         const isInCart = items.some((item) => item.id === p.id);
 
         return (

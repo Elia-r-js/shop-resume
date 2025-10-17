@@ -9,16 +9,20 @@ interface product {
 }
 
 interface productStore {
+    searchValue:string
     products : product[] ;
     loading : boolean;
     error :string | null;
-    fetchProducts: () => Promise<void> 
+    fetchProducts: () => Promise<void> ;
+    setSearchValue: (val:string) => void
+    
 }
 
 export const useProductStore = create<productStore>((set) => ({
     products : [] ,
     loading : false , 
     error : null,
+    searchValue:"",
     fetchProducts : async () => {
         set({loading:true, error : null})
         try{
@@ -27,5 +31,6 @@ export const useProductStore = create<productStore>((set) => ({
         }catch(err : any) {
             set({error:err.message || "failed to fetch" , loading:false});
         }
-    }
+    },
+    setSearchValue:(val:string) => set({searchValue : val})
 }))

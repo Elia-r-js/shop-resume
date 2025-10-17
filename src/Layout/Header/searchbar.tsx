@@ -1,7 +1,13 @@
 import { InputAdornment, TextField } from '@mui/material'
 import React from 'react'
+import { useProductStore } from '../../store/productStore'
 
 export default function Searchbar() {
+
+    const {products,searchValue , setSearchValue} = useProductStore()
+
+    const filtered = products.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+
   return (
     <TextField
               size="small"
@@ -30,6 +36,11 @@ export default function Searchbar() {
                   </InputAdornment>
                 ),
               }}
+              value={searchValue}
+              onChange={(e)=>setSearchValue(e.target.value)}
+
+
+
             />
   )
 }
