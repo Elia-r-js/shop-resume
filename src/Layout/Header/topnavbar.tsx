@@ -1,16 +1,7 @@
 import {
   AppBar,
-  Box,
-  Button,
   Container,
-  IconButton,
-  InputAdornment,
-  Menu,
-  MenuItem,
   Stack,
-  TextField,
-  Toolbar,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import React from "react";
@@ -25,7 +16,7 @@ export default function TopNavbar() {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-    <Stack sx={{ ml: 5 }} direction="row" gap={2} alignItems={"center"}>
+    <Stack sx={{ ml: 5 }} direction="row" gap={2} alignItems={"center"} justifyContent={"space-between"}>
                 <Typography
             variant="h6"
             noWrap
@@ -44,8 +35,10 @@ export default function TopNavbar() {
             3MAK.
           </Typography>
       <Buttonpages/>
+      <Stack direction={"row"} >
       <Searchbar/>
       <UserSetting/>
+      </Stack>
     </Stack>
     
 

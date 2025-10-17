@@ -18,19 +18,19 @@ export default function UserSetting() {
          <Menu
               sx={{
                 mt: "35px",
-                ml: "230px",
+                mr: "36px",
                 display: { xs: "none", md: "flex" },
               }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: "top",
-                horizontal: "left",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "left",
+                horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
